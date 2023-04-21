@@ -16,7 +16,7 @@
             <p>Utilize o gerador de senha para criar uma senha aleatoria.</p> 
         </section>
 
-        <section class="box">
+        <section class="box safe">
             <div class="password">
                 <div class="text">
                     <input type="text" name="password" id="password"/>
@@ -34,9 +34,35 @@
                 <div id="securityIndicatorBar" class="bar safe" style="width: 90%;"></div>
             </div>
         </section>
-            <input type="range" name="passwordLength" id="passwordLength" value="16" min="4" max="64">
-
+        <section class="box customize">
+            <h3 class="title">Personalizar</h3>
+            <div class="actions">
+                <div class="password-Lenght">
+                    <p>Tamanho: <span id="passwordLengthText">16</span></p>
+                    <input type="range" name="password-Length" id="passwordLength" class="slider" value="16" min="4" max="64">
+                </div>
+                <div class="config">
+                    <label class="checkboxContainer">
+                        <span class="text">Maiúsculas</span>
+                        <input type="checkbox" id="uppercaseCheck" checked />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkboxContainer">
+                        <span class="text">Múmeros</span>
+                        <input type="checkbox" id="numberCheck" checked />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkboxContainer">
+                        <span class="text">Símbolos</span>
+                        <input type="checkbox" id="symbolCheck" checked />
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+        </section>
+        <div class="submit">
             <button id="copy">Copiar senha</button>
+        </div>
     </main>
     <script src="index.js"></script>
 </body>

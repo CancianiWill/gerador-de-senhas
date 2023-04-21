@@ -2,11 +2,28 @@ const inputElement = document.querySelector("#password"); //captura o elemento p
 const passwordLengthElement = document.querySelector("#passwordLength"); // captura o tamanho do password
 const copyButtonElement = document.querySelector("#copy"); //captura o button "Copiar senha"
 const copy2ButtonElement = document.querySelector("#copy2");
+const uppercaseCheckElement = document.querySelector("#uppercaseCheck");
+const numberCheckElement = document.querySelector("#numberCheck");
+const symbolCheckElement = document.querySelector("#symbolCheck")
 let passwordLength = 16
 
 function generatePassword(){
-    const chars = "abcdefghjklmnpqrstuvwxyzABCDEFGHJKLMNIOQRSTUVWXYZ123456789?!@&*()[]" //caracteres a serem randomizados 
+    let chars = "abcdefghjklmnpqrstuvwxyz" //caracteres a serem randomizados 
     
+    const upperCaseChars = "ABCDEFGHJKLMNIOQRSTUVWXYZ"
+    const numberChars = "123456789"
+    const symbolChars = "?!@&*()[]"
+
+    if(uppercaseCheckElement.checked){
+        chars += upperCaseChars
+    };
+    if(numberCheckElement.checked){
+        chars += numberChars
+    };
+    if(symbolCheckElement.checked){
+        chars += symbolChars
+    }
+
     let password = "" // vai receber a senha.
 
     for(let i = 0; i < passwordLength; i++) {  // loop randomizando a senha usando o tamanho do "chars" para escolher os caracteres.
@@ -29,5 +46,9 @@ passwordLengthElement.addEventListener("input", () => { //evento para criar um n
     passwordLength = passwordLengthElement.value
     generatePassword();
 });
+
+uppercaseCheckElement.addEventListener('click', generatePassword)
+numberCheckElement.addEventListener('click', generatePassword)
+symbolCheckElement.addEventListener('click', generatePassword)
 
 generatePassword();
